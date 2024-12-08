@@ -65,6 +65,7 @@ class LoginView(APIView):
             
             
 class RegisterUser(APIView):
+    permission_classes = [IsAuthenticated or IsAdminUser]
     @swagger_auto_schema(
         operation_description="Register a new user",
         request_body=openapi.Schema(
